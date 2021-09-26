@@ -1,0 +1,121 @@
+<!document html>
+<html lang="en" xmlns:th="https://www.thymeLeaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<script src="../../static/js/jquery-3.6.0.js"></script>
+	<script src="https://cdn.tiny.cloud/1/4osscu6trdiwdez4tdnc2lk2urvnt5wsn1dva0f7kseyz3j4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+    <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+   });
+  </script>
+	 <title> This is About page</title>
+</head>
+<body>
+	<section class="add_contact-banner" >
+	
+		<div class="card me-3 ms-3">
+		
+			<div class="card-body">
+			
+				<h1 class="text-center">Add Contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+							<form action="#" th:object="${contact}" enctype="multipart/form-data" method="POST" th:action="@{/user/process-contact}" class="mt-2">
+								
+								<!-- First Name -->
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text ">
+											<i class="fa fa-plus"></i>
+										</div>
+									</div>
+									<input type="text" id="firstName" name="name" placeholder="Enter name here " class="form-control " required/>
+								</div>
+								
+								<!-- Secound Name -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text  ">
+											<i class="fa fa-user-alt"></i>
+										</div>
+									</div>
+									<input type="text" id="secoundName" name="secoundName" placeholder="Enter secound name here " class="form-control "/>
+								</div>
+								
+								<!-- work Name -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text  ">
+											<i class="fa fa-briefcase"></i>
+										</div>
+									</div>
+									<input type="text" id="work" name="work" placeholder="Enter work place " class="form-control "/>
+								</div>
+								
+								<!-- phone Name -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text  ">
+											<i class="fa fa-phone"></i>
+										</div>
+									</div>
+									<input type="phone" min="10" max="12" id="phone" name="phone" placeholder="Enter phone no here " class="form-control " required/>
+								</div>
+								
+								<!-- email Name -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text  ">
+											@
+										</div>
+									</div>
+									<input type="email" id="email" name="email" placeholder="Enter email here " class="form-control "/>
+								</div>
+								
+								<!-- description Name -->
+								<div class="form-group mt-3  ">
+										<textarea id="mytextarea" name="description"  rows="10" class="form-control" placeholder="Description"></textarea>
+								</div>
+									
+								<!-- Contact image  -->
+								<div class="custom=file mt-3">
+										<input type="file" name="profileImage"></input>
+								</div>			
+								
+								<!-- Button  -->
+								<div class="continer mt-3 text-center">
+										<button class="btn bg-primary text-light">Save</button>
+								</div>
+								
+							</form>
+						</div>
+								
+			
+					</div>
+				</div>
+				
+			</div>
+		
+			</div>
+		<script>
+			$(document).ready(()=>{
+				$(".item").removeClass("active");	
+				$("#add-link").removeClass("active");	
+			});
+			
+		</script>
+	</section>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!document html>
+<html lang="en" xmlns:th="https://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title> This is About page</title>
+</head>
+<body>
+	<section class="signin-banner">
+ <div id="login" >
+       
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" style="height: 230px" class="col-md-12">
+                    
+                    	<!-- messagebox-->
+						<div th:if="${session.message}"  class="alert ms-3 me-3" role="alert">
+  								<p class="text-center text-dark" th:text="${session.message}"></p>
+  								<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+                    
+                    
+       					<h3 class="text-center m-3 text-dark">Your Register Email</h3>
+       					
+       					<form method="POST" action="" th:action="@{/send-otp}">
+       						<div class="form-group m-3">
+       							<input name="email" required type="email" placeholder="Enter your registred Email here" class="form-control " />
+       						</div>
+       						<div class="container text-center">
+       							<button class="btn btn-warning">Send OTP</button>
+       						</div>
+       					</form>
+       					
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</section>
+</body>
+</html>
